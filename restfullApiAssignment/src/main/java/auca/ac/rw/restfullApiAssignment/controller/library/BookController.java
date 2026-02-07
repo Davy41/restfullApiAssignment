@@ -56,13 +56,19 @@ public class BookController {
     }
 
     @GetMapping(value="/books/{id}")
-    public String getBookById(@PathVariable Integer id) {
+    public List<Book> getBookById(@PathVariable Integer id) {
         for(int i=0; i<title.size(); i++){
             if(this.id.get(i).equals(id)){
-                return title.get(i);
+                return Arrays.asList(new Book(
+                    this.id.get(i),
+                    this.title.get(i),
+                    this.Author.get(i),
+                    this.ISBN.get(i),
+                    this.publicationYear.get(i)
+                ));
             }
         }
-        return "Book not found";
+        return null;
     }
 
     @GetMapping(value="/books/search")
