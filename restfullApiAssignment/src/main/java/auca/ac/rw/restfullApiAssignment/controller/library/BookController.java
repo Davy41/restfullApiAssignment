@@ -25,6 +25,9 @@ public class BookController {
         public String isbn;
         public Integer publicationYear;
         
+        public Book() {
+        }
+        
         public Book(Integer id, String title, String author, String isbn, Integer publicationYear) {
             this.id = id;
             this.title = title;
