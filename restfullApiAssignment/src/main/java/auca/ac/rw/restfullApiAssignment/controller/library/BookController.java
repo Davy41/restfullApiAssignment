@@ -17,6 +17,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 public class BookController {
     
+    // Inner class to hold book data
+    public static class Book {
+        public Integer id;
+        public String title;
+        public String author;
+        public String isbn;
+        public Integer publicationYear;
+        
+        public Book(Integer id, String title, String author, String isbn, Integer publicationYear) {
+            this.id = id;
+            this.title = title;
+            this.author = author;
+            this.isbn = isbn;
+            this.publicationYear = publicationYear;
+        }
+    }
 
     public List<String> title = new ArrayList<>(Arrays.asList("Chernobyl","The Alchemist","Brunhilde"));
     public List<Integer> id = new ArrayList<>(Arrays.asList(1,2,3));
@@ -25,8 +41,18 @@ public class BookController {
     public List<Integer> publicationYear = new ArrayList<>(Arrays.asList(2013,1988,1937));
 
     @GetMapping(value="/books")
-    public List<String> getBooks() {
-        return title ;
+    public List<Book> getBooks() {
+        List<Book> books = new ArrayList<>();
+        for(int i=0; i<title.size(); i++){
+            books.add(new Book(
+                id.get(i),
+                title.get(i),
+                Author.get(i),
+                ISBN.get(i),
+                publicationYear.get(i)
+            ));
+        }
+        return books;
     }
 
     @GetMapping(value="/books/{id}")
