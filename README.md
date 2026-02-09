@@ -119,6 +119,102 @@
 - Deletes a product by ID
 - Example: `http://localhost:8080/api/products/1`
 
+## Task Management API Endpoints
+
+### 1. Get All Tasks
+- **GET** `/tasks`
+- Returns all tasks
+- Example: `http://localhost:8080/api/tasks`
+
+### 2. Get Task by ID
+- **GET** `/tasks/{id}`
+- Returns a specific task by ID
+- Example: `http://localhost:8080/api/tasks/1`
+
+### 3. Get Tasks by Status
+- **GET** `/tasks/status?completed={true|false}`
+- Returns tasks filtered by completion status
+- Example: `http://localhost:8080/api/tasks/status?completed=true`
+
+### 4. Get Tasks by Priority
+- **GET** `/tasks/priority/{priority}`
+- Returns tasks with specified priority (LOW, MEDIUM, HIGH)
+- Example: `http://localhost:8080/api/tasks/priority/HIGH`
+
+### 5. Add New Task
+- **POST** `/tasks?title={title}&description={description}&completed={true|false}&priority={priority}&dueDate={dueDate}`
+- Creates a new task
+- Example: `http://localhost:8080/api/tasks?title=New Task&description=Task description&completed=false&priority=MEDIUM&dueDate=2024-12-25`
+
+### 6. Update Task
+- **PUT** `/tasks/{id}?title={title}&description={description}&completed={true|false}&priority={priority}&dueDate={dueDate}`
+- Updates an existing task by ID
+- Example: `http://localhost:8080/api/tasks/1?title=Updated Task&description=New description&completed=false&priority=HIGH&dueDate=2024-12-30`
+
+### 7. Mark Task as Complete
+- **PATCH** `/tasks/{id}/complete`
+- Marks a task as completed
+- Example: `http://localhost:8080/api/tasks/1/complete`
+
+### 8. Delete Task
+- **DELETE** `/tasks/{id}`
+- Deletes a task by ID
+- Example: `http://localhost:8080/api/tasks/1`
+
+## User Profile API Endpoints
+
+Note: All User Profile endpoints return responses wrapped in an ApiResponse object with `success`, `message`, and `data` fields.
+
+### 1. Get All Users
+- **GET** `/users`
+- Returns all user profiles
+- Example: `http://localhost:8080/api/users`
+
+### 2. Get User by ID
+- **GET** `/users/{id}`
+- Returns a specific user profile by ID
+- Example: `http://localhost:8080/api/users/1`
+
+### 3. Search User by Username
+- **GET** `/users/search/username/{username}`
+- Returns user profile by username
+- Example: `http://localhost:8080/api/users/search/username/john_doe`
+
+### 4. Get Users by Country
+- **GET** `/users/country/{country}`
+- Returns all users from a specific country
+- Example: `http://localhost:8080/api/users/country/USA`
+
+### 5. Get Users by Age Range
+- **GET** `/users/age-range?min={min}&max={max}`
+- Returns users within specified age range
+- Example: `http://localhost:8080/api/users/age-range?min=20&max=30`
+
+### 6. Add New User
+- **POST** `/users?username={username}&email={email}&fullName={fullName}&age={age}&country={country}&bio={bio}`
+- Creates a new user profile (active by default)
+- Example: `http://localhost:8080/api/users?username=new_user&email=user@example.com&fullName=New User&age=25&country=USA&bio=Developer`
+
+### 7. Update User
+- **PUT** `/users/{id}?username={username}&email={email}&fullName={fullName}&age={age}&country={country}&bio={bio}`
+- Updates an existing user profile by ID
+- Example: `http://localhost:8080/api/users/1?username=updated_user&email=updated@example.com&fullName=Updated Name&age=26&country=Canada&bio=Senior Developer`
+
+### 8. Activate User
+- **PATCH** `/users/{id}/activate`
+- Activates a user profile
+- Example: `http://localhost:8080/api/users/1/activate`
+
+### 9. Deactivate User
+- **PATCH** `/users/{id}/deactivate`
+- Deactivates a user profile
+- Example: `http://localhost:8080/api/users/1/deactivate`
+
+### 10. Delete User
+- **DELETE** `/users/{id}`
+- Deletes a user profile by ID
+- Example: `http://localhost:8080/api/users/1`
+
 ## Menu API Endpoints
 
 ### 1. Get All Menu Items
