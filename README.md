@@ -62,6 +62,63 @@
 - Updates an existing student by ID
 - Example: `http://localhost:8080/api/students/1?firstname=Jane&lastname=Smith&email=jane@auca.edu.bi&major=Business&gpa=3.9`
 
+## Product API Endpoints
+
+### 1. Get All Products
+- **GET** `/products`
+- Returns all products
+- Example: `http://localhost:8080/api/products`
+
+### 2. Get Product by ID
+- **GET** `/products/{id}`
+- Returns a specific product by ID
+- Example: `http://localhost:8080/api/products/1`
+
+### 3. Get Products by Category
+- **GET** `/products/category/{category}`
+- Returns all products in a specific category
+- Example: `http://localhost:8080/api/products/category/Electronics`
+
+### 4. Get Products by Brand
+- **GET** `/products/brand/{brand}`
+- Returns all products from a specific brand
+- Example: `http://localhost:8080/api/products/brand/Acme`
+
+### 5. Search Products by Keyword
+- **GET** `/products/search?keyword={keyword}`
+- Searches products by name or description (case-insensitive)
+- Example: `http://localhost:8080/api/products/search?keyword=phone`
+
+### 6. Get Products by Price Range
+- **GET** `/products/price-range?min={min}&max={max}`
+- Returns products within specified price range
+- Example: `http://localhost:8080/api/products/price-range?min=10&max=200`
+
+### 7. Get In-Stock Products
+- **GET** `/products/in-stock`
+- Returns only products with stock quantity greater than 0
+- Example: `http://localhost:8080/api/products/in-stock`
+
+### 8. Add New Product
+- **POST** `/products?name={name}&description={description}&price={price}&category={category}&stockQuantity={stockQuantity}&brand={brand}`
+- Adds a new product
+- Example: `http://localhost:8080/api/products?name=Laptop&description=Gaming laptop&price=1299.99&category=Electronics&stockQuantity=15&brand=TechBrand`
+
+### 9. Update Product
+- **PUT** `/products/{id}?name={name}&description={description}&price={price}&category={category}&stockQuantity={stockQuantity}&brand={brand}`
+- Updates an existing product by ID
+- Example: `http://localhost:8080/api/products/1?name=Updated Phone&description=New description&price=599.99&category=Electronics&stockQuantity=40&brand=Acme`
+
+### 10. Update Product Stock
+- **PUT** `/products/{id}/stock?quantity={quantity}`
+- Updates only the stock quantity of a product
+- Example: `http://localhost:8080/api/products/1/stock?quantity=100`
+
+### 11. Delete Product
+- **DELETE** `/products/{id}`
+- Deletes a product by ID
+- Example: `http://localhost:8080/api/products/1`
+
 ## Menu API Endpoints
 
 ### 1. Get All Menu Items
